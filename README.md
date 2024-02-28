@@ -1,6 +1,7 @@
 # food-for-everyone
-MVP-приложение для социального проекта "Еда для всех", пример создания приложения с применением инструмента кодогенерации JAIG (использует API ChatGPT) 
+MVP-приложение для социального проекта "Еда для всех", пример создания приложения с применением инструмента кодогенерации [JAIG](https://github.com/sonkin/JAIG) (использует API ChatGPT) 
 
 Процесс разработки:
-0 - ТЗ: food-for-everyone/prompt/0_use_cases/0_use_cases-request.txt
-1 - UML - диаграмма: food-for-everyone/prompt/0_use_cases/0_use_cases-request.txt
+- 0 - [ТЗ](https://github.com/Valentina810/food-for-everyone/blob/main/prompt/0_use_cases/0_use_cases-response.txt)
+- 1 - [UML-диаграмма](https://github.com/Valentina810/food-for-everyone/blob/main/prompt/1_uml/1_uml-response.txt) 
+<img width="1041" alt="UML" src="https://github.com/Valentina810/food-for-everyone/blob/main/uml.png">
