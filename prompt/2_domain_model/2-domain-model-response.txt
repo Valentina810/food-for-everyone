@@ -1,0 +1,77 @@
+@startuml
+
+class User {
+    - id : int
+    - idType : int
+    - idRole : int
+    - idReasonBlocked : int
+    - name : string
+    - email : string
+    - password : string
+    - address : string
+    - phone : string
+    - isActive : boolean
+}
+
+class UserType {
+    - id : int
+    - name : string
+}
+
+class UserRole {
+    - id : int
+    - name : string
+}
+
+class ReasonBlocked {
+    - id : int
+    - name : string
+}
+
+class Dish {
+    - id : int
+    - name : string
+    - description : string
+    - price : float
+    - isAvailable : boolean
+}
+
+class DishInOrder {
+    - id : int
+    - idDish : int
+    - idOrder : int
+    - count : int
+    - amount : float
+}
+
+class Order {
+    - id : int
+    - idUser : int
+    - totalAmount : float
+    - idStatusOrder : int
+    - deliveryAddress : string
+    - deliveryDate : string
+}
+
+class StatusOrder {
+    - id : int
+    - name : string
+}
+
+class Donation {
+    - id : int
+    - idUser : int
+    - amount : float
+    - date : string
+}
+
+UserType "1" --> "*" User
+UserRole "1" --> "*" User
+ReasonBlocked "1" --> "*" User
+User "1" --> "*" Order : has
+User "1" --> "*" Donation : has
+Order "1" --> "*" DishInOrder : has
+StatusOrder "1" --> "*" Order
+Dish "1" --> "*" DishInOrder : has
+
+@enduml
