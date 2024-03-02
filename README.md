@@ -8,5 +8,6 @@ MVP-приложение для социального проекта "Еда д
 
 - 2 - [Доменная модель на основании use case](https://github.com/Valentina810/food-for-everyone/blob/main/prompt/2_domain_model/2-domain-model-response.txt) 
 <img width="1000" alt="Доменная модель на основании use case" src="https://github.com/Valentina810/food-for-everyone/blob/main/src/main/resources/domain-model.png">
+
 - 3 - [Классы на Java согласно доменной модели](https://github.com/Valentina810/food-for-everyone/blob/main/prompt/3_classes_domain_model/3_classes_domain_model-response.txt)
 - 4 - [Разделение классов по пакетам](https://github.com/Valentina810/food-for-everyone/blob/main/prompt/4_split_packages/4_split_packages-response.txt)
