@@ -1,0 +1,102 @@
+package com.github.valentina810.foodforeveryone.domain.user;
+
+public class User {
+    private Long id;
+    private UserType userType;
+    private UserRole userRole;
+    private String firstName;
+    private String lastName;
+    private String address;
+    private String phone;
+    private String email;
+    private String login;
+    private String password;
+    private Boolean isBlocked;
+    private ReasonBlocked reasonBlocked;
+
+    // Constructor, getters and setters
+}
+
+package com.github.valentina810.foodforeveryone.domain.user;
+
+public class UserType {
+    private Long id;
+    private String type;
+    
+    // Constructor, getters and setters
+}
+
+package com.github.valentina810.foodforeveryone.domain.user;
+
+public class UserRole {
+    private Long id;
+    private String role;
+    
+    // Constructor, getters and setters
+}
+
+package com.github.valentina810.foodforeveryone.domain.user;
+
+public class ReasonBlocked {
+    private Long id;
+    private String reason;
+    
+    // Constructor, getters and setters
+}
+
+package com.github.valentina810.foodforeveryone.domain.dish;
+
+public class Dish {
+    private Long id;
+    private String name;
+    private String description;
+    private Double price;
+    private Boolean isAvailable;
+
+    // Constructor, getters and setters
+}
+
+package com.github.valentina810.foodforeveryone.domain.dish;
+
+public class DishInOrder {
+    private Long id;
+    private Long idDish;
+    private Long idOrder;
+    private Integer count;
+
+    // Constructor, getters and setters
+}
+
+package com.github.valentina810.foodforeveryone.domain.order;
+
+public class Order {
+    private Long id;
+    private Long idUser;
+    private Long idStatusOrder;
+    private String deliveryAddress;
+    private Date deliveryDate;
+    private StatusOrder status;
+    
+    // Constructor, getters and setters
+}
+
+package com.github.valentina810.foodforeveryone.domain.order;
+
+public class StatusOrder {
+    private Long id;
+    private String status;
+    
+    // Constructor, getters and setters
+}
+
+package com.github.valentina810.foodforeveryone.domain.donation;
+
+public class Donation {
+    private Long id;
+    private Long idUser;
+    private Double amount;
+    private Date date;
+    private String paymentMethod;
+    
+    // Constructor, getters and setters
+}
