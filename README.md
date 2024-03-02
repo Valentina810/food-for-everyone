@@ -10,5 +10,7 @@ MVP-приложение для социального проекта "Еда д
 <img width="1000" alt="Доменная модель на основании use case" src="https://github.com/Valentina810/food-for-everyone/blob/main/src/main/resources/domain-model.png">
 
 - 3 - [Классы на Java согласно доменной модели](https://github.com/Valentina810/food-for-everyone/blob/main/prompt/3_classes_domain_model/3_classes_domain_model-response.txt)
-- 4 - [Разделение классов по пакетам](https://github.com/Valentina810/food-for-everyone/blob/main/prompt/4_split_packages/4_split_packages-response.txt)
-- 5 - [Добавление JPA-репозиториев](https://github.com/Valentina810/food-for-everyone/blob/main/prompt/5_add_repositories/5_add_repositories-response.txt)
+- 4 - [Разделить_классы по пакетам](https://github.com/Valentina810/food-for-everyone/blob/main/prompt/4_split_packages/4_split_packages-response.txt)
+- 5 - [Добавить JPA-репозитории](https://github.com/Valentina810/food-for-everyone/blob/main/prompt/5_add_repositories/5_add_repositories-response.txt)
+- 6 - [Добавить в модельные классы поддержку JPA](https://github.com/Valentina810/food-for-everyone/blob/main/prompt/6_add_connection_between_repositories_and_models/6_add_connection_between_repositories_and_models-response.txt)  
+- 7 - [Сгенерировать скрипт для содания таблиц в БД](https://github.com/Valentina810/food-for-everyone/blob/main/prompt/7_add_script_for_bd_generate/7_add_script_for_bd_generate-response.txt)

@@ -38,8 +38,10 @@ public class Order {
     @JoinColumn(name = "status_order_id", nullable = false)
     private StatusOrder statusOrder;
 
+    @Column(name = "delivery_address")
     private String deliveryAddress;
 
+    @Column(name = "delivery_date")
     private Date deliveryDate;
 
     @OneToMany(mappedBy = "order_id", cascade = CascadeType.ALL, orphanRemoval = true, fetch = FetchType.LAZY)

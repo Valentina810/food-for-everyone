@@ -27,7 +27,7 @@ public class Donation {
     private Long id;
 
     @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "id_user", nullable = false)
+    @JoinColumn(name = "user_id", nullable = false)
     private User idUser;
 
     @ManyToOne
