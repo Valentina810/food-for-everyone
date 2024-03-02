@@ -11,3 +11,4 @@ MVP-приложение для социального проекта "Еда д
 
 - 3 - [Классы на Java согласно доменной модели](https://github.com/Valentina810/food-for-everyone/blob/main/prompt/3_classes_domain_model/3_classes_domain_model-response.txt)
 - 4 - [Разделение классов по пакетам](https://github.com/Valentina810/food-for-everyone/blob/main/prompt/4_split_packages/4_split_packages-response.txt)
+- 5 - [Добавление JPA-репозиториев](https://github.com/Valentina810/food-for-everyone/blob/main/prompt/5_add_repositories/5_add_repositories-response.txt)
