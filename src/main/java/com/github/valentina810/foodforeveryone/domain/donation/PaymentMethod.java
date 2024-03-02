@@ -1,4 +1,4 @@
-package com.github.valentina810.foodforeveryone.domain.dish;
+package com.github.valentina810.foodforeveryone.domain.donation;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
@@ -8,19 +8,14 @@ import jakarta.persistence.Id;
 import jakarta.persistence.Table;
 
 @Entity
-@Table(name = "dishes")
-public class Dish {
+@Table(name = "payment_method")
+public class PaymentMethod {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "id_dish", nullable = false, unique = true)
+    @Column(name = "id_payment_method", nullable = false, unique = true)
     private Long id;
 
     private String name;
 
-    private String description;
-
-    private Double price;
-
-    @Column(name = "is_available")
-    private Boolean isAvailable;
+    // getters and setters
 }
