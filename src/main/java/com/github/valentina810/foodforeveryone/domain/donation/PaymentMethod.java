@@ -16,6 +16,4 @@ public class PaymentMethod {
     private Long id;
 
     private String name;
-
-    // getters and setters
 }
