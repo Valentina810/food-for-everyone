@@ -1,0 +1,71 @@
+package com.github.valentina810.foodforeveryone.repository.order;
+
+import com.github.valentina810.foodforeveryone.domain.order.Order;
+import org.springframework.data.jpa.repository.JpaRepository;
+
+public interface OrderRepository extends JpaRepository<Order, Long> {
+}
+
+package com.github.valentina810.foodforeveryone.repository.order;
+
+import com.github.valentina810.foodforeveryone.domain.order.StatusOrder;
+import org.springframework.data.jpa.repository.JpaRepository;
+
+public interface StatusOrderRepository extends JpaRepository<StatusOrder, Long> {
+}
+
+package com.github.valentina810.foodforeveryone.repository.donation;
+
+import com.github.valentina810.foodforeveryone.domain.donation.Donation;
+import org.springframework.data.jpa.repository.JpaRepository;
+
+public interface DonationRepository extends JpaRepository<Donation, Long> {
+}
+
+package com.github.valentina810.foodforeveryone.repository.dish;
+
+import com.github.valentina810.foodforeveryone.domain.dish.DishInOrder;
+import org.springframework.data.jpa.repository.JpaRepository;
+
+public interface DishInOrderRepository extends JpaRepository<DishInOrder, Long> {
+}
+
+package com.github.valentina810.foodforeveryone.repository.dish;
+
+import com.github.valentina810.foodforeveryone.domain.dish.Dish;
+import org.springframework.data.jpa.repository.JpaRepository;
+
+public interface DishRepository extends JpaRepository<Dish, Long> {
+}
+
+package com.github.valentina810.foodforeveryone.repository.user;
+
+import com.github.valentina810.foodforeveryone.domain.user.UserRole;
+import org.springframework.data.jpa.repository.JpaRepository;
+
+public interface UserRoleRepository extends JpaRepository<UserRole, Long> {
+}
+
+package com.github.valentina810.foodforeveryone.repository.user;
+
+import com.github.valentina810.foodforeveryone.domain.user.ReasonBlocked;
+import org.springframework.data.jpa.repository.JpaRepository;
+
+public interface ReasonBlockedRepository extends JpaRepository<ReasonBlocked, Long> {
+}
+
+package com.github.valentina810.foodforeveryone.repository.user;
+
+import com.github.valentina810.foodforeveryone.domain.user.User;
+import org.springframework.data.jpa.repository.JpaRepository;
+
+public interface UserRepository extends JpaRepository<User, Long> {
+}
+
+package com.github.valentina810.foodforeveryone.repository.user;
+
+import com.github.valentina810.foodforeveryone.domain.user.UserType;
+import org.springframework.data.jpa.repository.JpaRepository;
+
+public interface UserTypeRepository extends JpaRepository<UserType, Long> {
+}
