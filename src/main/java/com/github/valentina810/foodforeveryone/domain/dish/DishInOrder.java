@@ -1,5 +1,6 @@
 package com.github.valentina810.foodforeveryone.domain.dish;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.github.valentina810.foodforeveryone.domain.order.Order;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
@@ -34,7 +35,8 @@ public class DishInOrder {
 
     @ManyToOne
     @JoinColumn(name = "order_id", nullable = false)
-    private Order orders;
+    @JsonIgnore
+    private Order order;
 
     private Integer count;
 }

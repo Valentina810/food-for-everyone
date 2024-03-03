@@ -27,4 +27,8 @@ public class Dish {
 
     private String name;
     private String description;
+    private Double price;
+
+    @Column(name = "is_available")
+    private Boolean isAvailable;
 }

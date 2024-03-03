@@ -33,12 +33,10 @@ public class DishInOrderServiceImpl implements DishInOrderService {
         Order order = findEntityById(orderRepository, dishInOrderAddDto.getOrderId(), "Заказ");
         return dishInOrderRepository.save(DishInOrder.builder()
                 .dish(dish)
-                .orders(order)
+                .order(order)
                 .count(dishInOrderAddDto.getCount())
                 .build());
     }
-
-
 
     @Override
     public void removeDishFromOrder(Long id) {

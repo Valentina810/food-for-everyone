@@ -10,7 +10,7 @@ import java.util.List;
 @Repository
 public interface DishInOrderRepository extends JpaRepository<DishInOrder, Long> {
 
-    @Query(value = "from DishInOrder dio "+
-            "where dio.orders.id=:orderId")
+    @Query(value = "from DishInOrder dio " +
+            "where dio.order.id=:orderId")
     List<DishInOrder> findByOrderId(Long orderId);
 }

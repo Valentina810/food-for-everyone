@@ -5,6 +5,7 @@
  ***/
 package com.github.valentina810.foodforeveryone.domain.donation;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.github.valentina810.foodforeveryone.domain.user.User;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
@@ -36,6 +37,7 @@ public class Donation {
     @Column(name = "id_donation", nullable = false, unique = true)
     private Long id;
 
+    @JsonIgnore
     @ManyToOne
     @JoinColumn(name = "user_id", nullable = false)
     private User user;
