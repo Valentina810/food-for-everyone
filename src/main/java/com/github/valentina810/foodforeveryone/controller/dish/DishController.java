@@ -6,7 +6,7 @@
 package com.github.valentina810.foodforeveryone.controller.dish;
 
 import com.github.valentina810.foodforeveryone.domain.dish.Dish;
-import com.github.valentina810.foodforeveryone.services.dish.DishService;
+import com.github.valentina810.foodforeveryone.service.dish.DishService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;

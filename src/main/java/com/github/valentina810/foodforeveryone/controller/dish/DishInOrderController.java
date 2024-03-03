@@ -7,7 +7,7 @@ package com.github.valentina810.foodforeveryone.controller.dish;
 
 import com.github.valentina810.foodforeveryone.domain.dish.DishInOrder;
 import com.github.valentina810.foodforeveryone.dto.DishInOrderAddDto;
-import com.github.valentina810.foodforeveryone.services.dish.DishInOrderService;
+import com.github.valentina810.foodforeveryone.service.dish.DishInOrderService;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import org.springframework.validation.annotation.Validated;

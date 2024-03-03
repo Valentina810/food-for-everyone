@@ -3,7 +3,7 @@
 ***   As a result of parsing GPT response 
 ***   controller-response
 ***/
-package com.github.valentina810.foodforeveryone.services.dish;
+package com.github.valentina810.foodforeveryone.service.dish;
 
 import com.github.valentina810.foodforeveryone.domain.dish.Dish;
 import com.github.valentina810.foodforeveryone.repository.dish.DishRepository;

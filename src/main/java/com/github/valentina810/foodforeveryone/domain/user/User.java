@@ -1,5 +1,6 @@
 package com.github.valentina810.foodforeveryone.domain.user;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -8,7 +9,11 @@ import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
 import jakarta.persistence.Table;
+import lombok.Getter;
+import lombok.Setter;
 
+@Getter
+@Setter
 @Entity
 @Table(name = "users")
 public class User {
@@ -39,6 +44,7 @@ public class User {
 
     private String login;
 
+    @JsonIgnore
     private String password;
 
     @Column(name = "is_blocked")

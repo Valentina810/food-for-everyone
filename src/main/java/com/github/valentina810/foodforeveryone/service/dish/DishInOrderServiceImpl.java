@@ -3,7 +3,7 @@
  ***   As a result of parsing GPT response
  ***   controller-response
  ***/
-package com.github.valentina810.foodforeveryone.services.dish;
+package com.github.valentina810.foodforeveryone.service.dish;
 
 import com.github.valentina810.foodforeveryone.domain.dish.Dish;
 import com.github.valentina810.foodforeveryone.domain.dish.DishInOrder;
@@ -13,10 +13,11 @@ import com.github.valentina810.foodforeveryone.repository.dish.DishInOrderReposi
 import com.github.valentina810.foodforeveryone.repository.dish.DishRepository;
 import com.github.valentina810.foodforeveryone.repository.order.OrderRepository;
 import lombok.RequiredArgsConstructor;
-import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+
+import static com.github.valentina810.foodforeveryone.service.utils.SearchEntityExecutor.findEntityById;
 
 @Service
 @RequiredArgsConstructor
@@ -37,9 +38,7 @@ public class DishInOrderServiceImpl implements DishInOrderService {
                 .build());
     }
 
-    private <T> T findEntityById(JpaRepository<T, Long> repository, Long id, String entityName) {
-        return repository.findById(id).orElseThrow(() -> new RuntimeException(String.format("%s с id %d не найден!", entityName, id)));
-    }
+
 
     @Override
     public void removeDishFromOrder(Long id) {
