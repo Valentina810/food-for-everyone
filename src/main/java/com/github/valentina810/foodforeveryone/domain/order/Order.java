@@ -2,6 +2,7 @@ package com.github.valentina810.foodforeveryone.domain.order;
 
 import com.github.valentina810.foodforeveryone.domain.dish.DishInOrder;
 import com.github.valentina810.foodforeveryone.domain.user.User;
+import jakarta.persistence.CascadeType;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -47,7 +48,7 @@ public class Order {
     @Column(name = "delivery_date")
     private Date deliveryDate;
 
-    @OneToMany(mappedBy = "order")
+    @OneToMany(mappedBy = "order", cascade = CascadeType.ALL, orphanRemoval = true)
     private List<DishInOrder> dishes;
 
     @Column(name = "total_sum")
