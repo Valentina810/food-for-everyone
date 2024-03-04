@@ -49,4 +49,7 @@ public class Order {
 
     @OneToMany(mappedBy = "order")
     private List<DishInOrder> dishes;
+
+    @Column(name = "total_sum")
+    private Double totalSum;
 }

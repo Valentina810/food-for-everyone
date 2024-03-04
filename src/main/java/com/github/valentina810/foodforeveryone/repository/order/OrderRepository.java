@@ -7,9 +7,9 @@ import org.springframework.stereotype.Repository;
 
 @Repository
 public interface OrderRepository extends JpaRepository<Order, Long> {
-    @Query(value = "from Order ord " +
-            "left join fetch ord.dishes " +
-            "left join fetch ord.statusOrder " +
+    @Query(value = "from Order ord  " +
+            "left join fetch ord.dishes  " +
+            "left join fetch ord.statusOrder  " +
             "where ord.id=:orderId")
     Order getOrderWithDishes(Long orderId);
 }

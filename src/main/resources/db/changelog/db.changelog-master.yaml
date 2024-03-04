@@ -5,3 +5,5 @@ databaseChangeLog:
       - file: db/changelog/v.1.0.0/changeset/2024-03-03-fill_testdata_in_db.sql
   - include:
       - file: db/changelog/v.1.0.0/changeset/2024-03-04-add_constraint.sql
+  - include:
+      - file: db/changelog/v.1.0.0/changeset/2024-03-04-add_total_sum_in_order_and_triggers.sql
