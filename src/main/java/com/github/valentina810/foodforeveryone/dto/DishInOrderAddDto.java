@@ -9,9 +9,11 @@ public class DishInOrderAddDto {
     @NotNull
     @Positive
     private Long orderId;
+
     @NotNull
     @Positive
     private Long dishId;
+
     @NotNull
     @Positive
     private Integer count;
