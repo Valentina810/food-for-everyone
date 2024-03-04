@@ -1,0 +1,30 @@
+version: '3.8'
+services:
+  client-backend:
+    image: client:0.0.1
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - "8080:8080"
+    depends_on:
+      - db-foodforeveryone
+    environment:
+      - SPRING_DATASOURCE_URL=jdbc:postgresql://db-lms:5432/foodforeveryone
+      - SPRING_DATASOURCE_USERNAME=user
+      - SPRING_DATASOURCE_PASSWORD=password
+    volumes:
+      - /etc/timezone:/etc/timezone:ro
+      - /etc/localtime:/etc/localtime:ro
+
+  db-foodforeveryone:
+    image: postgres:14-alpine
+    container_name: db-foodforeveryone
+    ports:
+      - "6541:5432"
+    volumes:
+      - /var/lib/postgresql/data
+    environment:
+      - POSTGRES_DB=foodforeveryone
+      - POSTGRES_USER=user
+      - POSTGRES_PASSWORD=password
