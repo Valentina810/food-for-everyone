@@ -7,6 +7,8 @@ import org.springframework.stereotype.Service;
 
 import java.util.List;
 
+import static com.github.valentina810.foodforeveryone.service.utils.SearchEntityExecutor.findEntityById;
+
 @Service
 public class DishServiceImpl implements DishService {
 
@@ -39,7 +41,7 @@ public class DishServiceImpl implements DishService {
 
     @Override
     public Dish updateDish(Long id, Dish dish) {
-        Dish existingDish = dishRepository.findById(id).orElse(null);
+        Dish existingDish = findEntityById(dishRepository, id, "Блюдо");
         if (existingDish != null) {
             existingDish.setName(dish.getName());
             existingDish.setDescription(dish.getDescription());

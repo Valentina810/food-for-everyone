@@ -38,7 +38,7 @@ public class UserServiceImpl implements UserService {
 
     @Override
     public User getUserById(Long id) {
-        return userRepository.findById(id).orElse(null);
+        return findEntityById(userRepository, id, "Пользователь");
     }
 
     @Override
@@ -53,6 +53,7 @@ public class UserServiceImpl implements UserService {
             existingUser.setUserType(findEntityById(userTypeRepository, userCreateDto.getIdUserType(), "Тип пользователя"));
             existingUser.setUserRole(findEntityById(userRoleRepository, userCreateDto.getIdUserRole(), "Роль пользователя"));
             existingUser.setLastName(userCreateDto.getLastName());
+            existingUser.setFirstName(userCreateDto.getFirstName());
             existingUser.setAddress(userCreateDto.getAddress());
             existingUser.setPhone(userCreateDto.getPhone());
             existingUser.setEmail(userCreateDto.getEmail());

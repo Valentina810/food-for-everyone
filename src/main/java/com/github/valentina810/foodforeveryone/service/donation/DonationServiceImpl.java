@@ -5,12 +5,13 @@ import com.github.valentina810.foodforeveryone.dto.DonationAddDto;
 import com.github.valentina810.foodforeveryone.repository.donation.DonationRepository;
 import com.github.valentina810.foodforeveryone.repository.donation.PaymentMethodRepository;
 import com.github.valentina810.foodforeveryone.repository.user.UserRepository;
-import com.github.valentina810.foodforeveryone.service.utils.SearchEntityExecutor;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
 import java.util.Date;
 import java.util.List;
+
+import static com.github.valentina810.foodforeveryone.service.utils.SearchEntityExecutor.findEntityById;
 
 @Service
 @RequiredArgsConstructor
@@ -23,8 +24,8 @@ public class DonationServiceImpl implements DonationService {
     @Override
     public Donation addDonation(DonationAddDto donationAddDto) {
         return donationRepository.save(Donation.builder()
-                .user(SearchEntityExecutor.findEntityById(userRepository, donationAddDto.getUserId(), "Пользователь"))
-                .paymentMethod(SearchEntityExecutor.findEntityById(paymentMethodRepository, donationAddDto.getPaymentMethodId(), "Метод оплаты"))
+                .user(findEntityById(userRepository, donationAddDto.getUserId(), "Пользователь"))
+                .paymentMethod(findEntityById(paymentMethodRepository, donationAddDto.getPaymentMethodId(), "Метод оплаты"))
                 .date(new Date())
                 .amount(donationAddDto.getAmount())
                 .build());
@@ -37,6 +38,7 @@ public class DonationServiceImpl implements DonationService {
 
     @Override
     public Donation getDonationById(Long donationId) {
-        return donationRepository.findById(donationId).orElse(null);
+        return
+                findEntityById(donationRepository, donationId, "Пожертвование");
     }
 }
