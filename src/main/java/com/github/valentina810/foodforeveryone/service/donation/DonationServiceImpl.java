@@ -7,6 +7,8 @@ import com.github.valentina810.foodforeveryone.repository.donation.PaymentMethod
 import com.github.valentina810.foodforeveryone.repository.user.UserRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Isolation;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.Date;
 import java.util.List;
@@ -14,6 +16,7 @@ import java.util.List;
 import static com.github.valentina810.foodforeveryone.service.utils.SearchEntityExecutor.findEntityById;
 
 @Service
+@Transactional(readOnly = true)
 @RequiredArgsConstructor
 public class DonationServiceImpl implements DonationService {
 
@@ -22,6 +25,7 @@ public class DonationServiceImpl implements DonationService {
     private final UserRepository userRepository;
 
     @Override
+    @Transactional(isolation = Isolation.SERIALIZABLE)
     public Donation addDonation(DonationAddDto donationAddDto) {
         return donationRepository.save(Donation.builder()
                 .user(findEntityById(userRepository, donationAddDto.getUserId(), "Пользователь"))
@@ -38,7 +42,6 @@ public class DonationServiceImpl implements DonationService {
 
     @Override
     public Donation getDonationById(Long donationId) {
-        return
-                findEntityById(donationRepository, donationId, "Пожертвование");
+        return findEntityById(donationRepository, donationId, "Пожертвование");
     }
 }

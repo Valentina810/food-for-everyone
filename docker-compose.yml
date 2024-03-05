@@ -10,7 +10,7 @@ services:
     depends_on:
       - db-foodforeveryone
     environment:
-      - SPRING_DATASOURCE_URL=jdbc:postgresql://db-lms:5432/foodforeveryone
+      - SPRING_DATASOURCE_URL=jdbc:postgresql://db-foodforeveryone:5432/foodforeveryone
       - SPRING_DATASOURCE_USERNAME=user
       - SPRING_DATASOURCE_PASSWORD=password
     volumes:

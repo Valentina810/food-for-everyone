@@ -9,12 +9,15 @@ import com.github.valentina810.foodforeveryone.repository.dish.DishRepository;
 import com.github.valentina810.foodforeveryone.repository.order.OrderRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Isolation;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 
 import static com.github.valentina810.foodforeveryone.service.utils.SearchEntityExecutor.findEntityById;
 
 @Service
+@Transactional(readOnly = true)
 @RequiredArgsConstructor
 public class DishInOrderServiceImpl implements DishInOrderService {
 
@@ -23,6 +26,7 @@ public class DishInOrderServiceImpl implements DishInOrderService {
     private final OrderRepository orderRepository;
 
     @Override
+    @Transactional(isolation = Isolation.SERIALIZABLE)
     public DishInOrder addDishToOrder(DishInOrderAddDto dishInOrderAddDto) {
         Dish dish = findEntityById(dishRepository, dishInOrderAddDto.getDishId(), "Блюдо");
         Order order = findEntityById(orderRepository, dishInOrderAddDto.getOrderId(), "Заказ");
@@ -34,6 +38,7 @@ public class DishInOrderServiceImpl implements DishInOrderService {
     }
 
     @Override
+    @Transactional(isolation = Isolation.SERIALIZABLE)
     public void removeDishFromOrder(Long id) {
         dishInOrderRepository.deleteById(id);
     }
@@ -44,6 +49,7 @@ public class DishInOrderServiceImpl implements DishInOrderService {
     }
 
     @Override
+    @Transactional(isolation = Isolation.SERIALIZABLE)
     public DishInOrder updateDishToOrder(Long id, Integer count) {
         DishInOrder dishInOrder = findEntityById(dishInOrderRepository, id, "Блюдо в заказе");
         dishInOrder.setCount(count);

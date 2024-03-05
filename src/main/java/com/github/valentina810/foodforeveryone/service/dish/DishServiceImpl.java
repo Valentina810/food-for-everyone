@@ -2,24 +2,24 @@ package com.github.valentina810.foodforeveryone.service.dish;
 
 import com.github.valentina810.foodforeveryone.domain.dish.Dish;
 import com.github.valentina810.foodforeveryone.repository.dish.DishRepository;
-import org.springframework.beans.factory.annotation.Autowired;
+import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Isolation;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 
 import static com.github.valentina810.foodforeveryone.service.utils.SearchEntityExecutor.findEntityById;
 
 @Service
+@Transactional(readOnly = true)
+@RequiredArgsConstructor
 public class DishServiceImpl implements DishService {
 
     private final DishRepository dishRepository;
 
-    @Autowired
-    public DishServiceImpl(DishRepository dishRepository) {
-        this.dishRepository = dishRepository;
-    }
-
     @Override
+    @Transactional(isolation = Isolation.SERIALIZABLE)
     public Dish addDish(Dish dish) {
         return dishRepository.save(dish);
     }
@@ -40,6 +40,7 @@ public class DishServiceImpl implements DishService {
     }
 
     @Override
+    @Transactional(isolation = Isolation.SERIALIZABLE)
     public Dish updateDish(Long id, Dish dish) {
         Dish existingDish = findEntityById(dishRepository, id, "Блюдо");
         if (existingDish != null) {
@@ -51,6 +52,7 @@ public class DishServiceImpl implements DishService {
     }
 
     @Override
+    @Transactional(isolation = Isolation.SERIALIZABLE)
     public void deleteDish(Long id) {
         dishRepository.deleteById(id);
     }

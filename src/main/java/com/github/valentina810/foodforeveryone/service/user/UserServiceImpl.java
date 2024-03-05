@@ -9,10 +9,13 @@ import com.github.valentina810.foodforeveryone.repository.user.UserRoleRepositor
 import com.github.valentina810.foodforeveryone.repository.user.UserTypeRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Isolation;
+import org.springframework.transaction.annotation.Transactional;
 
 import static com.github.valentina810.foodforeveryone.service.utils.SearchEntityExecutor.findEntityById;
 
 @Service
+@Transactional(readOnly = true)
 @RequiredArgsConstructor
 public class UserServiceImpl implements UserService {
 
@@ -22,6 +25,7 @@ public class UserServiceImpl implements UserService {
     private final ReasonBlockedRepository reasonBlockedRepository;
 
     @Override
+    @Transactional(isolation = Isolation.SERIALIZABLE)
     public User addUser(UserCreateDto userCreateDto) {
         return userRepository.save(User.builder()
                 .userType(findEntityById(userTypeRepository, userCreateDto.getIdUserType(), "Тип пользователя"))
@@ -47,6 +51,7 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
+    @Transactional(isolation = Isolation.SERIALIZABLE)
     public User updateUser(Long id, UserCreateDto userCreateDto) {
         User existingUser = findEntityById(userRepository, id, "Пользователь");
         if (existingUser != null) {
@@ -65,11 +70,13 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
+    @Transactional(isolation = Isolation.SERIALIZABLE)
     public void deleteUser(Long id) {
         userRepository.deleteById(id);
     }
 
     @Override
+    @Transactional(isolation = Isolation.SERIALIZABLE)
     public User blockUser(Long id, Long idReasonBlocked) {
         User existingUser = findEntityById(userRepository, id, "Пользователь");
         ReasonBlocked reasonBlocked = findEntityById(reasonBlockedRepository, idReasonBlocked, "Причина блокировки");

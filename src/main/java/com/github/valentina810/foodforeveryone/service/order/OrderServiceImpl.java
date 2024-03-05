@@ -14,6 +14,8 @@ import com.github.valentina810.foodforeveryone.repository.order.StatusOrderRepos
 import com.github.valentina810.foodforeveryone.repository.user.UserRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Isolation;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 import java.util.Optional;
@@ -22,6 +24,7 @@ import java.util.stream.Collectors;
 import static com.github.valentina810.foodforeveryone.service.utils.SearchEntityExecutor.findEntityById;
 
 @Service
+@Transactional(readOnly = true)
 @RequiredArgsConstructor
 public class OrderServiceImpl implements OrderService {
 
@@ -32,6 +35,7 @@ public class OrderServiceImpl implements OrderService {
     private final DishInOrderRepository dishInOrderRepository;
 
     @Override
+    @Transactional(isolation = Isolation.SERIALIZABLE)
     public Order addOrder(OrderAddDto order) {
         User user = findEntityById(userRepository, order.getUserId(), "Пользователь");
         StatusOrder statusOrder = findEntityById(statusOrderRepository, order.getStatusOrder(), "Статус заказа");
@@ -78,6 +82,7 @@ public class OrderServiceImpl implements OrderService {
     }
 
     @Override
+    @Transactional(isolation = Isolation.SERIALIZABLE)
     public Order updateOrderStatus(Long orderId, Long statusId) {
         Order order = findEntityById(orderRepository, orderId, "Заказ");
         if (order != null) {
